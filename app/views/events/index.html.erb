@@ -3,7 +3,14 @@
     <% @events.each do |event| %>
       <card class="event-card">
         <h4><%= event.title %></h4>
-        <img src="http://via.placeholder.com/540x300">
+        <!--<img src="http://via.placeholder.com/540x300">-->
+        <!--<img src=event.image.url>-->
+        <% if event.image? %>
+          <div class="thumbnail">
+            <%= image_tag event.image.url, :size => "260x260", :alt => "アイコン" %>
+        <!--<img src=@event.image.url alt="写真" width="193" height="130">-->
+          </div>
+        <% end %>        
         <div class="row">
           <div class="six columns">
             <p class="major-info"><%= event.location %></p>

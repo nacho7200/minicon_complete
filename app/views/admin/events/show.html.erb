@@ -1,9 +1,4 @@
 <p>
-  <strong>Image:</strong>
-  <%= @event.image %>
-</p>
-
-<p>
   <strong>Category:</strong>
   <%= @event.event_category.name %>
 </p>
@@ -31,6 +26,16 @@
 <p>
   <strong>Ticket Quantity:</strong>
   <%= @event.ticket_quantity %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @event.image? %>
+    <div class="thumbnail">
+      <%= image_tag @event.image.url, :size => "260x260", :alt => "アイコン" %>
+      <!--<img src=@event.image.url alt="写真" width="193" height="130">-->
+    </div>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_admin_event_path(@event) %> |

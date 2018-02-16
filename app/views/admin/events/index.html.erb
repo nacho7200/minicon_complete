@@ -23,7 +23,14 @@
         <td><%= event.start_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= event.ticket_price %>円</td>
         <td><%= event.ticket_quantity %></td>
-        <th><%= event.image %></th>
+        <th>
+        <!--<th><%= event.image %>-->
+          <% if event.image? %>
+            <div class="thumbnail">
+              <%= image_tag event.image.url, :size => "160x160", :alt => "アイコン" %>
+            </div>
+          <% end %>
+        </th>
         <td><%= link_to 'Show', admin_event_path(event) %></td>
         <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
         <td><%= link_to 'Destroy', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
